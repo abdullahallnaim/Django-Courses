@@ -3,9 +3,9 @@
 
 {% block body %} 
     {% if messages %}
-    {% for m in messages %}
-    <small {% if m.tags %} class="{{m.tags}}" {% endif %}>{{m}}</small>
-    {% endfor %}
+      {% for m in messages %}
+        <small {% if m.tags %} class="{{m.tags}}" {% endif %}>{{m}}</small>
+      {% endfor %}
     {% endif %}
     <form method="post" style="width: 50%; margin: auto" novalidate>
       <h1>Signup Page</h1>

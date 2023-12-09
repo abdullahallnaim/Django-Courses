@@ -1,0 +1,61 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+
+<div class="d-flex flex-wrap px-5 pt-3 align-items-center">
+
+  <div class="col-6">
+    <h1>Welcome to Django Blog</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus dolorum delectus necessitatibus temporibus adipisci, harum enim unde, suscipit in ipsum provident hic minima molestias reiciendis nihil veniam aut doloribus, ab quidem sit cum at nemo nulla autem! Dolor quaerat ea voluptatem ullam, consequuntur quisquam ut iste. Vitae exercitationem ipsum blanditiis. Nihil rem in quo magni quam sapiente ad ipsa voluptatum saepe quos temporibus, at iste? Eum saepe eos error ea recusandae, deserunt at quidem odio harum inventore. Necessitatibus eos sapiente architecto optio aut esse, facilis, voluptatibus assumenda ut exercitationem nobis molestias, quisquam nam quia odio ipsa? Voluptatem voluptas distinctio eaque.</p>
+  </div>
+  <div class="col-6">
+<img src="{% static 'header.jpg' %}" />
+  </div>
+</div>
+
+
+
+<div class="d-flex flex-wrap p-4">
+  <div class="col-2 bg-white p-3" >
+    <h5>All Categories</h5>
+    {% for cat in category %}
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="category"
+        id="{{cat.id}}"
+      />
+      <label class="form-check-label" for="{{cat.id}}">
+        
+        <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark" >{{cat.name}}</a>
+      </label>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="col-10 p-3">
+    <h4>{{data | length}} results found</h4>
+    <div class="d-flex flex-wrap pt-5">
+      {% for post in data %}
+      <div class="col-sm-3">
+        <div class="card m-2">
+          <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.content}}</p>
+            <p>Author : {{post.author.first_name}} {{post.author.last_name}}</p>
+            <p>
+              Category : {% for cat in post.category.all %}
+              <button class="btn btn-primary btn-sm m-2" disabled>
+                {{cat.name}}
+              </button>
+              {% endfor %}
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

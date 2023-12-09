@@ -32,9 +32,9 @@ from first_app.models import StudentModel,StudentInfoModel, TeacherInfoModel, Em
 #     list_display = ['id', 'user','pass_number','page', 'validity']
 
 
-@admin.register(Student)
-class StudentModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name','roll','class_name']
-@admin.register(Teacher)
-class TeacherModelAdmin(admin.ModelAdmin):
-    list_display = ['id','name','subject','student_list' ,'mobile']
+# @admin.register(Student)
+# class StudentModelAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'name','roll','class_name']
+# @admin.register(Teacher)
+# class TeacherModelAdmin(admin.ModelAdmin):
+#     list_display = ['id','name','subject','student_list' ,'mobile']

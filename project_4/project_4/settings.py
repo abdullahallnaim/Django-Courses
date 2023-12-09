@@ -120,6 +120,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR/'static',
 ]
+
 print(BASE_DIR)
 # print(STATICFILES_DIRS)
 # Default primary key field type

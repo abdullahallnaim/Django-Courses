@@ -23,3 +23,4 @@ urlpatterns = [
     path('', views.home),
     path('navigation/', include('navigation.urls')),
 ]
+
