@@ -19,7 +19,6 @@ class AvailableTime(models.Model):
     def __str__(self):
         return self.name
 
-
 # one to many --> many part e kintu foreign key add kortam
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
